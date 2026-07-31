@@ -17,10 +17,8 @@ pipeline {
         }
     }
     
-    post {
+post {
         always {
-            robot outputPath: 'results/output.xml'
-            archiveArtifacts artifacts: 'results/*.html', fingerprint: true
+            robot outputPath: 'results'
         }
     }
-}
