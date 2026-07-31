@@ -22,3 +22,4 @@ post {
             robot outputPath: 'results'
         }
     }
+}
