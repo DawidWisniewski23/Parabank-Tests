@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.4 on linux)" generated="2026-07-31T09:53:14.918778" rpa="false" schemaversion="5">
+<suite id="s1" name="Rf-Banks-Tests" source="/home/admin1/rf-banks-tests">
+<suite id="s1-s1" name="Tests" source="/home/admin1/rf-banks-tests/tests">
+<suite id="s1-s1-s1" name="Test Registration" source="/home/admin1/rf-banks-tests/tests/test_registration.robot">
+<test id="s1-s1-s1-t1" name="Udana rejestracja z losowymi danymi" line="13">
+<kw name="Otworz Stronę Rejestracji" owner="RegisterPage" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-07-31T09:53:15.407584" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7e4c82c0ef90&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.406261" elapsed="0.001509"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--headless=new')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.407983" elapsed="0.000482"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--no-sandbox')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.408608" elapsed="0.000347"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--disable-dev-shm-usage')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.409078" elapsed="0.000422"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<arg>$options.add_argument('--window-size=1920,1080')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.409616" elapsed="0.000359"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:15.410449" level="INFO">Opening browser 'chrome' to base url 'https://parabank.parasoft.com/parabank/register.htm'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.410120" elapsed="1.710750"/>
+</kw>
+<doc>Otwiera przeglądarkę Chrome w trybie headless.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.405113" elapsed="1.716687"/>
+</kw>
+<kw name="Stwórz Losowego Użytkownika I Wypełnij Formularz" owner="RegisterPage">
+<kw name="Generate Random String" owner="String">
+<msg time="2026-07-31T09:53:17.125517" level="INFO">${random_str} = vojxss</msg>
+<var>${random_str}</var>
+<arg>6</arg>
+<arg>[LOWER][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.124336" elapsed="0.001586"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-31T09:53:17.127724" level="INFO">${username} = user_vojxss</msg>
+<var>${username}</var>
+<arg>user_${random_str}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.126364" elapsed="0.001709"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-07-31T09:53:17.129411" level="INFO">${pass} = Haslo123!</msg>
+<var>${pass}</var>
+<arg>Haslo123!</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.128483" elapsed="0.001244"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-07-31T09:53:17.131158" level="INFO">${password} = Haslo123!</msg>
+<var>${password}</var>
+<arg>'${override_password}' != 'None'</arg>
+<arg>${override_password}</arg>
+<arg>${pass}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.130078" elapsed="0.001388"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2026-07-31T09:53:17.133448" level="INFO">${confirm_password} = Haslo123!</msg>
+<var>${confirm_password}</var>
+<arg>'${override_confirm_password}' != 'None'</arg>
+<arg>${override_confirm_password}</arg>
+<arg>${pass}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.131967" elapsed="0.001849"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.135393" level="INFO">Typing text 'Jan' into text field 'name=customer.firstName'.</msg>
+<arg>${INPUT_FIRST_NAME}</arg>
+<arg>Jan</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.134212" elapsed="0.118317"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.253490" level="INFO">Typing text 'Kowalski' into text field 'name=customer.lastName'.</msg>
+<arg>${INPUT_LAST_NAME}</arg>
+<arg>Kowalski</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.252872" elapsed="0.091433"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.347034" level="INFO">Typing text 'Przykładowa 1' into text field 'name=customer.address.street'.</msg>
+<arg>${INPUT_ADDRESS}</arg>
+<arg>Przykładowa 1</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.346004" elapsed="0.096298"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.442991" level="INFO">Typing text 'Warszawa' into text field 'name=customer.address.city'.</msg>
+<arg>${INPUT_CITY}</arg>
+<arg>Warszawa</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.442607" elapsed="0.082973"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.526172" level="INFO">Typing text 'Mazowieckie' into text field 'name=customer.address.state'.</msg>
+<arg>${INPUT_STATE}</arg>
+<arg>Mazowieckie</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.525816" elapsed="0.072816"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.599222" level="INFO">Typing text '00-001' into text field 'name=customer.address.zipCode'.</msg>
+<arg>${INPUT_ZIP_CODE}</arg>
+<arg>00-001</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.598867" elapsed="0.089279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.689437" level="INFO">Typing text '123456789' into text field 'name=customer.phoneNumber'.</msg>
+<arg>${INPUT_PHONE}</arg>
+<arg>123456789</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.688576" elapsed="0.116983"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.806458" level="INFO">Typing text '123-45-6789' into text field 'name=customer.ssn'.</msg>
+<arg>${INPUT_SSN}</arg>
+<arg>123-45-6789</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.805893" elapsed="0.120819"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:17.927306" level="INFO">Typing text 'user_vojxss' into text field 'name=customer.username'.</msg>
+<arg>${INPUT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:17.926936" elapsed="0.104421"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:18.032024" level="INFO">Typing password into text field 'name=customer.password'.</msg>
+<msg time="2026-07-31T09:53:18.078411" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:18.031626" elapsed="0.122552"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:18.156287" level="INFO">Typing password into text field 'name=repeatedPassword'.</msg>
+<msg time="2026-07-31T09:53:18.198670" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_CONFIRM_PASSWORD}</arg>
+<arg>${confirm_password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:18.154931" elapsed="0.113913"/>
+</kw>
+<return>
+<value>${username}</value>
+<status status="PASS" start="2026-07-31T09:53:18.269190" elapsed="0.000585"/>
+</return>
+<msg time="2026-07-31T09:53:18.270237" level="INFO">${username} = user_vojxss</msg>
+<var>${username}</var>
+<status status="PASS" start="2026-07-31T09:53:17.123186" elapsed="1.147458"/>
+</kw>
+<kw name="Kliknij przycisk rejestracji" owner="RegisterPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-07-31T09:53:18.273502" level="INFO">Clicking element 'xpath=//input[@value='Register']'.</msg>
+<arg>${BTN_REGISTER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-07-31T09:53:18.272609" elapsed="0.317419"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:53:18.271209" elapsed="0.319283"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Welcome ${username}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-07-31T09:53:18.590953" elapsed="0.287845"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Your account was created successfully. You are now logged in.</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-07-31T09:53:18.879121" elapsed="0.009378"/>
+</kw>
+<kw name="Zamknij Stronę Banku" owner="RegisterPage" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-07-31T09:53:18.889868" elapsed="0.069227"/>
+</kw>
+<status status="PASS" start="2026-07-31T09:53:18.889344" elapsed="0.069961"/>
+</kw>
+<doc>Testuje udaną rejestrację z losowymi danymi.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.393847" elapsed="3.565639"/>
+</test>
+<doc>Testy modułu rejestracji do ParaBanku.</doc>
+<status status="PASS" start="2026-07-31T09:53:15.179942" elapsed="3.792305"/>
+</suite>
+<status status="PASS" start="2026-07-31T09:53:15.116082" elapsed="3.867586"/>
+</suite>
+<status status="PASS" start="2026-07-31T09:53:14.926301" elapsed="4.068849"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Rf-Banks-Tests" id="s1" pass="1" fail="0" skip="0">Rf-Banks-Tests</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Rf-Banks-Tests.Tests</stat>
+<stat name="Test Registration" id="s1-s1-s1" pass="1" fail="0" skip="0">Rf-Banks-Tests.Tests.Test Registration</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
